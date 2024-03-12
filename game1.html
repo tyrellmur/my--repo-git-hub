@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Craps Game</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            text-align: center;
+            padding-top: 50px;
+        }
+        h1 {
+            color: #333;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: blue;
+            color: red;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <h1>Welcome to Quarks Casino</h1>
+    <button onclick="playCraps()">Play Craps!</button>
+    <p id="result"></p>
+
+    <script>
+        // Function to play the Craps game
+        function playCraps() {
+            // Generate two random numbers between 1 and 6 for the dice
+            let die1 = Math.floor(Math.random() * 6) + 1;
+            let die2 = Math.floor(Math.random() * 6) + 1;
+
+            // Calculate the sum of the two dice
+            let sum = die1 + die2;
+
+            // Display the results based on game rules
+            if (sum === 7 || sum === 11) {
+                document.getElementById("result").innerHTML = "CRAPS - You lose!";
+            } else if (die1 === die2 && die1 % 2 === 0) {
+                document.getElementById("result").innerHTML = "You won!";
+            } else {
+                document.getElementById("result").innerHTML = "You pushed!";
+            }
+        }
+    </script>
+</body>
+</html>
